@@ -1,0 +1,707 @@
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.com/> .
+@prefix mo: <http://purl.org/ontology/mo/> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@base <http://www.w3.org/2002/07/owl#> .
+
+[ rdf:type owl:Ontology
+ ] .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://example.com/belongsToGeneratedText
+ex:belongsToGeneratedText rdf:type owl:ObjectProperty ;
+                          owl:equivalentProperty schema:isPartOf ;
+                          rdfs:domain ex:GeneratedText ;
+                          rdfs:range ex:Text .
+
+
+###  http://example.com/belongsToMelodicAnalysis
+ex:belongsToMelodicAnalysis rdf:type owl:ObjectProperty ;
+                            rdfs:domain ex:Dance ;
+                            rdfs:range ex:MelodicAnalysis .
+
+
+###  http://example.com/belongsToRhythmicInstruction
+ex:belongsToRhythmicInstruction rdf:type owl:ObjectProperty ;
+                                rdfs:domain ex:Dance ;
+                                rdfs:range ex:RhythmicInstruction .
+
+
+###  http://example.com/belongsToShot
+ex:belongsToShot rdf:type owl:ObjectProperty ;
+                 owl:equivalentProperty dul:isComponentOf ;
+                 rdfs:domain ex:Dance ;
+                 rdfs:range ex:Shot .
+
+
+###  http://example.com/belongsToText
+ex:belongsToText rdf:type owl:ObjectProperty ;
+                 owl:equivalentProperty schema:isPartOf ;
+                 rdfs:domain ex:Score ;
+                 rdfs:range ex:Text .
+
+
+###  http://example.com/belongsToVideo
+ex:belongsToVideo rdf:type owl:ObjectProperty ;
+                  owl:equivalentProperty schema:isPartOf ;
+                  rdfs:domain ex:Shot ;
+                  rdfs:range ex:Video .
+
+
+###  http://example.com/belongsToWorkspace
+ex:belongsToWorkspace rdf:type owl:ObjectProperty ;
+                      owl:equivalentProperty schema:isPartOf ;
+                      rdfs:domain ex:Metadata ;
+                      rdfs:range ex:Workspace .
+
+
+###  http://example.com/hasAvatar
+ex:hasAvatar rdf:type owl:ObjectProperty ;
+             owl:equivalentProperty schema:image ;
+             rdfs:domain ex:Metadata ;
+             rdfs:range ex:Avatar .
+
+
+###  http://example.com/hasDance
+ex:hasDance rdf:type owl:ObjectProperty ;
+            owl:equivalentProperty schema:associatedMedia ;
+            rdfs:domain ex:Shot ;
+            rdfs:range ex:Dance ;
+            owl:propertyDisjointWith ex:hasShot .
+
+
+###  http://example.com/hasGeneratedText
+ex:hasGeneratedText rdf:type owl:ObjectProperty ;
+                    owl:equivalentProperty schema:exampleOfWork ;
+                    rdfs:domain ex:Text ;
+                    rdfs:range ex:GeneratedText .
+
+
+###  http://example.com/hasMetadata
+ex:hasMetadata rdf:type owl:ObjectProperty ;
+               owl:equivalentProperty schema:about ;
+               rdfs:domain ex:Workspace ;
+               rdfs:range ex:Metadata .
+
+
+###  http://example.com/hasScore
+ex:hasScore rdf:type owl:ObjectProperty ;
+            owl:equivalentProperty schema:aggregateRating ;
+            rdfs:domain ex:Text ;
+            rdfs:range ex:Score .
+
+
+###  http://example.com/hasShot
+ex:hasShot rdf:type owl:ObjectProperty ;
+           owl:equivalentProperty schema:associatedMedia ;
+           rdfs:domain ex:Video ;
+           rdfs:range ex:Shot .
+
+
+###  http://example.com/hasSound
+ex:hasSound rdf:type owl:ObjectProperty ;
+            owl:equivalentProperty schema:audio ;
+            rdfs:domain ex:Metadata ;
+            rdfs:range ex:Sound .
+
+
+###  http://example.com/hasText
+ex:hasText rdf:type owl:ObjectProperty ;
+           owl:equivalentProperty schema:text ;
+           rdfs:domain ex:Metadata ;
+           rdfs:range ex:Text .
+
+
+###  http://example.com/hasVideo
+ex:hasVideo rdf:type owl:ObjectProperty ;
+            owl:equivalentProperty schema:video ;
+            rdfs:domain ex:Metadata ;
+            rdfs:range ex:Video .
+
+
+###  http://schema.org/about
+schema:about rdf:type owl:ObjectProperty .
+
+
+###  http://schema.org/aggregateRating
+schema:aggregateRating rdf:type owl:ObjectProperty .
+
+
+###  http://schema.org/associatedMedia
+schema:associatedMedia rdf:type owl:ObjectProperty .
+
+
+###  http://schema.org/audio
+schema:audio rdf:type owl:ObjectProperty .
+
+
+###  http://schema.org/exampleOfWork
+schema:exampleOfWork rdf:type owl:ObjectProperty .
+
+
+###  http://schema.org/image
+schema:image rdf:type owl:ObjectProperty .
+
+
+###  http://schema.org/isPartOf
+schema:isPartOf rdf:type owl:ObjectProperty .
+
+
+###  http://schema.org/text
+schema:text rdf:type owl:ObjectProperty .
+
+
+###  http://schema.org/video
+schema:video rdf:type owl:ObjectProperty .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isComponentOf
+dul:isComponentOf rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://example.com/anger
+ex:anger rdf:type owl:DatatypeProperty ;
+         rdfs:domain ex:Score ;
+         rdfs:range xsd:decimal .
+
+
+###  http://example.com/attire
+ex:attire rdf:type owl:DatatypeProperty ;
+          rdfs:domain ex:Dance ;
+          rdfs:range xsd:string .
+
+
+###  http://example.com/beatValue
+ex:beatValue rdf:type owl:DatatypeProperty ;
+             owl:equivalentProperty mo:noteValue ;
+             rdfs:domain ex:RhythmicInstruction ;
+             rdfs:range xsd:string .
+
+
+###  http://example.com/beatsPerMinute
+ex:beatsPerMinute rdf:type owl:DatatypeProperty ;
+                  owl:equivalentProperty mo:tempo ;
+                  rdfs:domain ex:RhythmicInstruction ;
+                  rdfs:range xsd:integer .
+
+
+###  http://example.com/body
+ex:body rdf:type owl:DatatypeProperty ;
+        owl:equivalentProperty schema:text ;
+        rdfs:domain ex:GeneratedText ;
+        rdfs:range xsd:string .
+
+
+###  http://example.com/created_at
+ex:created_at rdf:type owl:DatatypeProperty ;
+              owl:equivalentProperty schema:dateCreated ;
+              rdfs:domain [ rdf:type owl:Class ;
+                            owl:unionOf ( ex:GeneratedText
+                                          ex:Score
+                                        )
+                          ] ;
+              rdfs:range xsd:dateTime .
+
+
+###  http://example.com/danceFormation
+ex:danceFormation rdf:type owl:DatatypeProperty ;
+                  rdfs:domain ex:Dance ;
+                  rdfs:range xsd:string .
+
+
+###  http://example.com/danceGenre
+ex:danceGenre rdf:type owl:DatatypeProperty ;
+              rdfs:domain ex:Dance ;
+              rdfs:range xsd:string .
+
+
+###  http://example.com/danceType
+ex:danceType rdf:type owl:DatatypeProperty ;
+             rdfs:domain ex:Dance ;
+             rdfs:range xsd:string .
+
+
+###  http://example.com/dancerLink
+ex:dancerLink rdf:type owl:DatatypeProperty ;
+              rdfs:domain ex:Dance ;
+              rdfs:range xsd:string .
+
+
+###  http://example.com/description
+ex:description rdf:type owl:DatatypeProperty ;
+               owl:equivalentProperty schema:description ;
+               rdfs:domain [ rdf:type owl:Class ;
+                             owl:unionOf ( ex:Avatar
+                                           ex:Sound
+                                           ex:Text
+                                           ex:Video
+                                         )
+                           ] ;
+               rdfs:range xsd:string .
+
+
+###  http://example.com/disgust
+ex:disgust rdf:type owl:DatatypeProperty ;
+           rdfs:domain ex:Score ;
+           rdfs:range xsd:decimal .
+
+
+###  http://example.com/fear
+ex:fear rdf:type owl:DatatypeProperty ;
+        rdfs:domain ex:Score ;
+        rdfs:range xsd:decimal .
+
+
+###  http://example.com/handMovement
+ex:handMovement rdf:type owl:DatatypeProperty ;
+                rdfs:domain ex:Dance ;
+                rdfs:range xsd:string .
+
+
+###  http://example.com/happiness
+ex:happiness rdf:type owl:DatatypeProperty ;
+             rdfs:domain ex:Score ;
+             rdfs:range xsd:decimal .
+
+
+###  http://example.com/id
+ex:id rdf:type owl:DatatypeProperty ;
+      owl:equivalentProperty schema:identifier ;
+      rdfs:domain [ rdf:type owl:Class ;
+                    owl:unionOf ( ex:Avatar
+                                  ex:Dance
+                                  ex:GeneratedText
+                                  ex:Score
+                                  ex:Shot
+                                  ex:Sound
+                                  ex:Text
+                                  ex:Video
+                                )
+                  ] ;
+      rdfs:range xsd:integer .
+
+
+###  http://example.com/keyframeTime
+ex:keyframeTime rdf:type owl:DatatypeProperty ;
+                owl:equivalentProperty schema:startTime ;
+                rdfs:domain ex:Shot ;
+                rdfs:range xsd:decimal .
+
+
+###  http://example.com/kineticUnit
+ex:kineticUnit rdf:type owl:DatatypeProperty ;
+               rdfs:domain ex:Dance ;
+               rdfs:range xsd:string .
+
+
+###  http://example.com/meter
+ex:meter rdf:type owl:DatatypeProperty ;
+         owl:equivalentProperty mo:meter ;
+         rdfs:domain ex:MelodicAnalysis ;
+         rdfs:range xsd:string .
+
+
+###  http://example.com/mode
+ex:mode rdf:type owl:DatatypeProperty ;
+        owl:equivalentProperty mo:mode ;
+        rdfs:domain ex:MelodicAnalysis ;
+        rdfs:range xsd:string .
+
+
+###  http://example.com/musicGenre
+ex:musicGenre rdf:type owl:DatatypeProperty ;
+              owl:equivalentProperty mo:genre ;
+              rdfs:domain ex:MelodicAnalysis ;
+              rdfs:range xsd:string .
+
+
+###  http://example.com/negative
+ex:negative rdf:type owl:DatatypeProperty ;
+            rdfs:domain ex:Score ;
+            rdfs:range xsd:decimal .
+
+
+###  http://example.com/positive
+ex:positive rdf:type owl:DatatypeProperty ;
+            rdfs:domain ex:Score ;
+            rdfs:range xsd:decimal .
+
+
+###  http://example.com/project_id
+ex:project_id rdf:type owl:DatatypeProperty ;
+              owl:equivalentProperty schema:productID ;
+              rdfs:domain [ rdf:type owl:Class ;
+                            owl:unionOf ( ex:Avatar
+                                          ex:Sound
+                                          ex:Text
+                                          ex:Video
+                                        )
+                          ] ;
+              rdfs:range xsd:integer .
+
+
+###  http://example.com/rhythm
+ex:rhythm rdf:type owl:DatatypeProperty ;
+          owl:equivalentProperty mo:rhythm ;
+          rdfs:domain ex:RhythmicInstruction ;
+          rdfs:range xsd:string .
+
+
+###  http://example.com/sadness
+ex:sadness rdf:type owl:DatatypeProperty ;
+           rdfs:domain ex:Score ;
+           rdfs:range xsd:decimal .
+
+
+###  http://example.com/size
+ex:size rdf:type owl:DatatypeProperty ;
+        owl:equivalentProperty schema:contentSize ;
+        rdfs:domain ex:Avatar ;
+        rdfs:range xsd:string .
+
+
+###  http://example.com/subjectivity
+ex:subjectivity rdf:type owl:DatatypeProperty ;
+                rdfs:domain ex:Score ;
+                rdfs:range xsd:decimal .
+
+
+###  http://example.com/surprise
+ex:surprise rdf:type owl:DatatypeProperty ;
+            rdfs:domain ex:Score ;
+            rdfs:range xsd:decimal .
+
+
+###  http://example.com/text_id
+ex:text_id rdf:type owl:DatatypeProperty ;
+           owl:equivalentProperty schema:identifier ;
+           rdfs:domain [ rdf:type owl:Class ;
+                         owl:unionOf ( ex:Avatar
+                                       ex:GeneratedText
+                                       ex:Sound
+                                       ex:Text
+                                       ex:Video
+                                     )
+                       ] ;
+           rdfs:range xsd:integer .
+
+
+###  http://example.com/updated_at
+ex:updated_at rdf:type owl:DatatypeProperty ;
+              owl:equivalentProperty schema:dateModified ;
+              rdfs:domain [ rdf:type owl:Class ;
+                            owl:unionOf ( ex:GeneratedText
+                                          ex:Score
+                                        )
+                          ] ;
+              rdfs:range xsd:dateTime .
+
+
+###  http://example.com/user_id
+ex:user_id rdf:type owl:DatatypeProperty ;
+           owl:equivalentProperty schema:identifier ;
+           rdfs:domain [ rdf:type owl:Class ;
+                         owl:unionOf ( ex:Avatar
+                                       ex:Sound
+                                       ex:Text
+                                       ex:Video
+                                     )
+                       ] ;
+           rdfs:range xsd:integer .
+
+
+###  http://purl.org/ontology/mo/genre
+mo:genre rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/ontology/mo/meter
+mo:meter rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/ontology/mo/mode
+mo:mode rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/ontology/mo/noteValue
+mo:noteValue rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/ontology/mo/rhythm
+mo:rhythm rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/ontology/mo/tempo
+mo:tempo rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/contentSize
+schema:contentSize rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/dateCreated
+schema:dateCreated rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/dateModified
+schema:dateModified rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/description
+schema:description rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/identifier
+schema:identifier rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/productID
+schema:productID rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/startTime
+schema:startTime rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/text
+schema:text rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://example.com/Avatar
+ex:Avatar rdf:type owl:Class ;
+          owl:equivalentClass schema:ImageObject .
+
+
+###  http://example.com/Dance
+ex:Dance rdf:type owl:Class ;
+         owl:equivalentClass schema:PerformingArtsEvent ,
+                             dul:Event .
+
+
+###  http://example.com/GeneratedText
+ex:GeneratedText rdf:type owl:Class ;
+                 owl:equivalentClass schema:CreativeWork ;
+                 owl:disjointWith ex:Workspace .
+
+
+###  http://example.com/MelodicAnalysis
+ex:MelodicAnalysis rdf:type owl:Class ;
+                   owl:equivalentClass mo:Composition ;
+                   owl:disjointWith ex:RhythmicInstruction .
+
+
+###  http://example.com/Metadata
+ex:Metadata rdf:type owl:Class ;
+            owl:equivalentClass schema:Dataset .
+
+
+###  http://example.com/RhythmicInstruction
+ex:RhythmicInstruction rdf:type owl:Class ;
+                       owl:equivalentClass mo:Composition .
+
+
+###  http://example.com/Score
+ex:Score rdf:type owl:Class ;
+         owl:equivalentClass schema:Rating .
+
+
+###  http://example.com/Shot
+ex:Shot rdf:type owl:Class ;
+        owl:equivalentClass schema:Clip .
+
+
+###  http://example.com/Sound
+ex:Sound rdf:type owl:Class ;
+         owl:equivalentClass schema:AudioObject .
+
+
+###  http://example.com/Text
+ex:Text rdf:type owl:Class ;
+        owl:equivalentClass schema:Text .
+
+
+###  http://example.com/Video
+ex:Video rdf:type owl:Class ;
+         owl:equivalentClass schema:VideoObject .
+
+
+###  http://example.com/Workspace
+ex:Workspace rdf:type owl:Class ;
+             owl:equivalentClass schema:CreativeWork .
+
+
+###  http://purl.org/ontology/mo/Composition
+mo:Composition rdf:type owl:Class .
+
+
+###  http://schema.org/AudioObject
+schema:AudioObject rdf:type owl:Class .
+
+
+###  http://schema.org/Clip
+schema:Clip rdf:type owl:Class .
+
+
+###  http://schema.org/CreativeWork
+schema:CreativeWork rdf:type owl:Class .
+
+
+###  http://schema.org/Dataset
+schema:Dataset rdf:type owl:Class .
+
+
+###  http://schema.org/ImageObject
+schema:ImageObject rdf:type owl:Class .
+
+
+###  http://schema.org/PerformingArtsEvent
+schema:PerformingArtsEvent rdf:type owl:Class .
+
+
+###  http://schema.org/Rating
+schema:Rating rdf:type owl:Class .
+
+
+###  http://schema.org/Text
+schema:Text rdf:type owl:Class .
+
+
+###  http://schema.org/VideoObject
+schema:VideoObject rdf:type owl:Class .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event
+dul:Event rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://example.com/dance1
+ex:dance1 rdf:type owl:NamedIndividual ,
+                   ex:Dance ;
+          ex:belongsToMelodicAnalysis ex:melodicAnalysis1 ;
+          ex:belongsToRhythmicInstruction ex:rhythmicInstruction1 ;
+          ex:attire "Γιορτινό" ;
+          ex:danceFormation "Ανοιχτός κύκλος με οδηγό" ;
+          ex:danceGenre "Ζωναράδικος" ;
+          ex:danceType "Γίκνα" ;
+          ex:handMovement "V+W" ;
+          ex:kineticUnit "Α+Α΄+Β" .
+
+
+###  http://example.com/dance2
+ex:dance2 rdf:type owl:NamedIndividual ,
+                   ex:Dance ;
+          ex:belongsToMelodicAnalysis ex:melodicAnalysis2 ;
+          ex:belongsToRhythmicInstruction ex:rhythmicInstruction2 ;
+          ex:attire "Αναπαραγωγή" ;
+          ex:danceFormation "Ανοιχτός κύκλος με οδηγό" ;
+          ex:danceGenre "Μπαϊντούσκα" ;
+          ex:danceType "Μπαϊντούσκα" ;
+          ex:dancerLink "W" ;
+          ex:handMovement "V+W" ;
+          ex:kineticUnit "Α+Β+Γ" .
+
+
+###  http://example.com/dance3
+ex:dance3 rdf:type owl:NamedIndividual ,
+                   ex:Dance ;
+          ex:belongsToMelodicAnalysis ex:melodicAnalysis3 ;
+          ex:belongsToRhythmicInstruction ex:rhythmicInstruction3 ;
+          ex:attire "Καθημερινό σύγχρονο" ;
+          ex:danceFormation "Ελεύθερο" ;
+          ex:danceGenre "Καρσιλαμάς" ;
+          ex:danceType "Καρσιλαμάς" ;
+          ex:handMovement "Ελεύθερη κίνηση" ;
+          ex:kineticUnit "Α+Α" .
+
+
+###  http://example.com/melodicAnalysis1
+ex:melodicAnalysis1 rdf:type owl:NamedIndividual ,
+                             ex:MelodicAnalysis ;
+                    ex:meter "2/4" ;
+                    ex:mode "Διατονικός, Τρόπος του σολ" ;
+                    ex:musicGenre "Γίκνα" .
+
+
+###  http://example.com/melodicAnalysis2
+ex:melodicAnalysis2 rdf:type owl:NamedIndividual ,
+                             ex:MelodicAnalysis ;
+                    ex:meter "5/8 (2-3)" ;
+                    ex:mode "Διατονικός, Τρόπος του ρε" ;
+                    ex:musicGenre "Μπαϊντούσκα" .
+
+
+###  http://example.com/melodicAnalysis3
+ex:melodicAnalysis3 rdf:type owl:NamedIndividual ,
+                             ex:MelodicAnalysis ;
+                    ex:meter "9/8 (2-2-2-3)" ;
+                    ex:mode "Διατονικός, Τρόπος του ντο" ;
+                    ex:musicGenre "Καρσιλαμάς" .
+
+
+###  http://example.com/rhythmicInstruction1
+ex:rhythmicInstruction1 rdf:type owl:NamedIndividual ,
+                                 ex:RhythmicInstruction ;
+                        ex:beatValue "Τέταρτο" ;
+                        ex:beatsPerMinute 126 ;
+                        ex:rhythm "Μη ελεύθερο" .
+
+
+###  http://example.com/rhythmicInstruction2
+ex:rhythmicInstruction2 rdf:type owl:NamedIndividual ,
+                                 ex:RhythmicInstruction ;
+                        ex:beatValue "Όγδοο" ;
+                        ex:beatsPerMinute 420 ;
+                        ex:rhythm "Μη ελεύθερο" .
+
+
+###  http://example.com/rhythmicInstruction3
+ex:rhythmicInstruction3 rdf:type owl:NamedIndividual ,
+                                 ex:RhythmicInstruction ;
+                        ex:beatValue "Όγδοο" ;
+                        ex:beatsPerMinute 252 ;
+                        ex:rhythm "Μη ελεύθερο" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointProperties ;
+  owl:members ( ex:belongsToGeneratedText
+                ex:belongsToText
+                ex:belongsToVideo
+                ex:belongsToWorkspace
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointProperties ;
+  owl:members ( ex:id
+                ex:text_id
+                ex:user_id
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
