@@ -1,0 +1,300 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix chr: <https://chromata-project.gr/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+<chr:AvatarMapping>  a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/home/estathop/Desktop/chromata/datadumpforsync.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$[*].metadata.[3].metadata.[*]"
+  ];
+  rr:subjectMap [
+    rr:template "https://chromata-project.gr/avatar-{id}";
+    rr:class chr:Avatar
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:id;
+    rr:objectMap [ rml:reference "id" ]
+  ];
+    rr:predicateObjectMap [
+    rr:predicate chr:project_id;
+    rr:objectMap [ rml:reference "project_id" ]
+  ];
+    rr:predicateObjectMap [
+    rr:predicate chr:size;
+    rr:objectMap [ rml:reference "size" ]
+  ];
+    rr:predicateObjectMap [
+    rr:predicate chr:user_id;
+    rr:objectMap [ rml:reference "user_id" ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:description;
+    rr:objectMap [ rml:reference "description" ]
+  ].
+
+<chr:GeneratedTextMapping>  a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/home/estathop/Desktop/chromata/datadumpforsync.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$[*].metadata.[1].metadata.[*].generated_text"
+  ];
+  rr:subjectMap [
+    rr:template "https://chromata-project.gr/generatedtext-{id}";
+    rr:class chr:GeneratedText
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:id;
+    rr:objectMap [ rml:reference "id" ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:body;
+    rr:objectMap [ rml:reference "body" ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:created_at;
+    rr:objectMap [ 
+      rml:reference "created_at";
+      rr:datatype xsd:dateTime
+    ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:updated_at;
+    rr:objectMap [ 
+      rml:reference "updated_at";
+      rr:datatype xsd:dateTime
+    ]
+  ].
+
+
+<chr:ScoreMapping>  a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/home/estathop/Desktop/chromata/datadumpforsync.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$[*].metadata.[1].metadata.[*].score"
+  ];
+  rr:subjectMap [
+    rr:template "https://chromata-project.gr/score-{id}";
+    rr:class chr:Score
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:id;
+    rr:objectMap [ rml:reference "id" ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:anger;
+    rr:objectMap [ 
+      rml:reference "anger";
+      rr:datatype xsd:decimal
+    ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:negative;
+    rr:objectMap [ 
+      rml:reference "negative";
+      rr:datatype xsd:decimal
+    ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:disgust;
+    rr:objectMap [ 
+      rml:reference "disgust";
+      rr:datatype xsd:decimal
+    ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:fear;
+    rr:objectMap [ 
+      rml:reference "fear";
+      rr:datatype xsd:decimal
+    ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:happiness;
+    rr:objectMap [ 
+      rml:reference "happiness";
+      rr:datatype xsd:decimal
+    ]
+  ];
+    rr:predicateObjectMap [
+    rr:predicate chr:subjectivity;
+    rr:objectMap [ 
+      rml:reference "subjectivity";
+      rr:datatype xsd:decimal
+    ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:positive;
+    rr:objectMap [ 
+      rml:reference "positive";
+      rr:datatype xsd:decimal
+    ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:sadness;
+    rr:objectMap [ 
+      rml:reference "sadness";
+      rr:datatype xsd:decimal
+    ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:surprise;
+    rr:objectMap [ 
+      rml:reference "surprise";
+      rr:datatype xsd:decimal
+    ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:created_at;
+    rr:objectMap [ 
+      rml:reference "created_at";
+      rr:datatype xsd:dateTime
+    ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:updated_at;
+    rr:objectMap [ 
+      rml:reference "updated_at";
+      rr:datatype xsd:dateTime
+    ]
+  ].
+<chr:ShotMapping>  a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/home/estathop/Desktop/chromata/datadumpforsync.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$[*].metadata.[0].metadata.[*].shots[*]"
+  ];
+  rr:subjectMap [
+    rr:template "https://chromata-project.gr/shot-{video_id}.{foreign_id}";
+    rr:class chr:Shot
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:video_id;
+    rr:objectMap [ rml:reference "video_id" ]
+  ];
+    rr:predicateObjectMap [
+    rr:predicate chr:keyframeTime;
+    rr:objectMap [ rml:reference "keyframe_time" ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:hasDance;
+    rr:objectMap [ rr:template "https://chromata-project.gr/dance-{dance}" ;
+    			rr:class chr:Dance]
+  ].
+
+<chr:SoundMapping>  a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/home/estathop/Desktop/chromata/datadumpforsync.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$[*].metadata.[2].metadata.[*]"
+  ];
+  rr:subjectMap [
+    rr:template "https://chromata-project.gr/sound-{id}";
+    rr:class chr:Sound
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:id;
+    rr:objectMap [ rml:reference "id" ]
+  ];
+    rr:predicateObjectMap [
+    rr:predicate chr:description;
+    rr:objectMap [ rml:reference "description" ]
+  ];
+    rr:predicateObjectMap [
+    rr:predicate chr:user_id;
+    rr:objectMap [ rml:reference "user_id" ]
+  ];
+    rr:predicateObjectMap [
+    rr:predicate chr:text_id;
+    rr:objectMap [ rml:reference "text_id" ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:project_id;
+    rr:objectMap [ rml:reference "project_id" ]
+  ].
+
+<chr:TextMapping>  a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/home/estathop/Desktop/chromata/datadumpforsync.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$[*].metadata.[1].metadata.[*]"
+  ];
+  rr:subjectMap [
+    rr:template "https://chromata-project.gr/text-{id}";
+    rr:class chr:Text
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:id;
+    rr:objectMap [ rml:reference "id" ]
+  ];
+    rr:predicateObjectMap [
+    rr:predicate chr:belongsToText;
+    rr:objectMap [ rr:template "https://chromata-project.gr/score-{score.id}" ;
+    rr:class chr:Score]
+  ];
+      rr:predicateObjectMap [
+    rr:predicate chr:hasGeneratedText;
+    rr:objectMap [ rr:template "https://chromata-project.gr/score-{generated_text.id}";
+    rr:class chr:GeneratedText ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:text_id;
+    rr:objectMap [ rml:reference "text_id" ]
+  ].
+
+<chr:VideoMapping>  a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/home/estathop/Desktop/chromata/datadumpforsync.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$[*].metadata.[0].metadata.[*]"
+  ];
+  rr:subjectMap [
+    rr:template "https://chromata-project.gr/video-{id}";
+    rr:class chr:Video
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:id;
+    rr:objectMap [ rml:reference "id" ]
+  ];
+    rr:predicateObjectMap [
+    rr:predicate chr:project_id;
+    rr:objectMap [ rml:reference "project_id" ]
+  ];
+    rr:predicateObjectMap [
+    rr:predicate chr:description;
+    rr:objectMap [ rml:reference "description" ]
+  ];
+    rr:predicateObjectMap [
+    rr:predicate chr:text_id;
+    rr:objectMap [ rml:reference "text_id" ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate chr:user_id;
+    rr:objectMap [ rml:reference "user_id" ]
+  ];  
+   rr:predicateObjectMap [
+    rr:predicate chr:hasShot;
+    rr:objectMap [ rr:template "https://chromata-project.gr/shot-{id}.{shots[*].foreign_id}" ;
+    rr:class chr:Shot]
+  ].
+
+<chr:WorkspaceMapping>  a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/home/estathop/Desktop/chromata/datadumpforsync.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$[*]"
+  ];
+  rr:subjectMap [
+    rr:template "https://chromata-project.gr/workspace-{workspace}";
+    rr:class chr:Workspace
+  ];
+    rr:predicateObjectMap [
+    rr:predicate chr:hasMetadata;
+    rr:objectMap [ rr:template "https://chromata-project.gr/metadata-{workspace}" ;
+            rr:class chr:Metadata; ]
+  ].
+
