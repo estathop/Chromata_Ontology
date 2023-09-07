@@ -1,0 +1,775 @@
+@prefix schema: <http://schema.org/> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix this: <https://chromata-project.gr/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix core: <http://data.sparna.fr/ontologies/sparnatural-config-core#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix datasources: <http://data.sparna.fr/ontologies/sparnatural-config-datasources#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+
+<https://chromata-project.gr> a owl:Ontology;
+  dct:source <https://docs.google.com/spreadsheets/d/1yFjEidYP7Btqnnm6iUMX3yO1C0YRgUb3nzWzb7YZmwE>;
+  dct:format <https://xls2rdf.sparna.fr/rest/convert?url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1yFjEidYP7Btqnnm6iUMX3yO1C0YRgUb3nzWzb7YZmwE%2Fexport%3Fformat%3Dxlsx&noPostProcessings=true>;
+  owl:imports <http://data.sparna.fr/ontologies/sparnatural-config-core>, <http://data.sparna.fr/ontologies/sparnatural-config-datasources> .
+
+this:Avatar a owl:Class;
+  rdfs:subClassOf core:SparnaturalClass;
+  rdfs:label "Avatar"@en;
+  core:faIcon "fa-solid fa-user-tie-hair-long";
+  core:tooltip "Represents instances of Avatars of the platform."@en;
+  core:order "1"^^xsd:integer .
+
+this:Dance a owl:Class;
+  rdfs:subClassOf core:SparnaturalClass;
+  rdfs:label "Dance"@en;
+  core:faIcon "fa-regular fa-alien-8bit";
+  core:tooltip "Represents instances of Dances in the platform"@en;
+  core:order "1"^^xsd:integer .
+
+this:GeneratedText a owl:Class;
+  rdfs:subClassOf core:SparnaturalClass;
+  rdfs:label "Generated Text"@en;
+  core:faIcon "fa-duotone fa-input-text";
+  core:tooltip "Represents instances of Generated Texts in the platform."@en;
+  core:order "1"^^xsd:integer .
+
+this:MelodicAnalysis a owl:Class;
+  rdfs:subClassOf core:SparnaturalClass;
+  rdfs:label "Melodic Analysis"@en;
+  core:faIcon "fa-regular fa-music";
+  core:tooltip "Represents instances of Melodic Analyses in the platform."@en;
+  core:order "1"^^xsd:integer .
+
+this:Metadata a owl:Class;
+  rdfs:subClassOf core:SparnaturalClass;
+  rdfs:label "Metadata"@en;
+  core:faIcon "fa-duotone fa-database";
+  core:tooltip "Represents instances of Metadata in the platform."@en;
+  core:order "1"^^xsd:integer .
+
+this:RhythmicInstruction a owl:Class;
+  rdfs:subClassOf core:SparnaturalClass;
+  rdfs:label "Rhythmic Instruction"@en;
+  core:faIcon "fa-regular fa-ruler";
+  core:tooltip "Represents instances of Rhythmic Instructions in the platform."@en;
+  core:order "1"^^xsd:integer .
+
+this:Score a owl:Class;
+  rdfs:subClassOf core:SparnaturalClass;
+  rdfs:label "Score"@en;
+  core:faIcon "fa-solid fa-hundred-points";
+  core:tooltip "Represents instances of Scores in the platform."@en;
+  core:order "1"^^xsd:integer .
+
+this:Shot a owl:Class;
+  rdfs:subClassOf core:SparnaturalClass;
+  rdfs:label "Shot"@en;
+  core:faIcon "fa-solid fa-shutters";
+  core:tooltip "Represents instances of Shots in the platform."@en;
+  core:order "1"^^xsd:integer .
+
+this:Sound a owl:Class;
+  rdfs:subClassOf core:SparnaturalClass;
+  rdfs:label "Sound"@en;
+  core:faIcon "fa-light fa-headphones";
+  core:tooltip "Represents instances of Sounds in the platform."@en;
+  core:order "1"^^xsd:integer .
+
+this:Text a owl:Class;
+  rdfs:subClassOf core:SparnaturalClass;
+  rdfs:label "Text"@en;
+  core:faIcon "fa-duotone fa-text-size";
+  core:tooltip "Represents instances of Texts in the platform."@en;
+  core:order "1"^^xsd:integer .
+
+this:Video a owl:Class;
+  rdfs:subClassOf core:SparnaturalClass;
+  rdfs:label "Video"@en;
+  core:faIcon "fa-duotone fa-video";
+  core:tooltip "Represents instances of Videos in the platform."@en;
+  core:order "1"^^xsd:integer .
+
+this:Workspace a owl:Class;
+  rdfs:subClassOf core:SparnaturalClass;
+  rdfs:label "Workspace"@en;
+  core:faIcon "fa-light fa-shuttle-space";
+  core:tooltip "Represents instances of Workspaces in the platform."@en;
+  core:order "1"^^xsd:integer .
+
+this:Anger a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Anger Score"@en;
+  core:faIcon "fa-regular fa-face-swear";
+  core:order "1"^^xsd:integer .
+
+this:Attire a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Attire"@en;
+  core:faIcon "fa-regular fa-clothes-hanger";
+  core:order "1"^^xsd:integer .
+
+this:BeatValue a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Beat Value"@en;
+  core:faIcon "fa-duotone fa-music";
+  core:order "1"^^xsd:integer .
+
+this:BeatsperMinute a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Beats per Minute"@en;
+  core:faIcon "fa-solid fa-music";
+  core:order "1"^^xsd:integer .
+
+this:Body a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Body"@en;
+  core:faIcon "fa-brands fa-odysee";
+  core:order "1"^^xsd:integer .
+
+this:Created_at a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Created at"@en;
+  core:faIcon "fa-regular fa-calendar-days";
+  core:order "1"^^xsd:integer .
+
+this:DanceFormation a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Dance Formation"@en;
+  core:faIcon "fa-solid fa-land-mine-on";
+  core:order "1"^^xsd:integer .
+
+this:DanceGenre a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Dance Genre"@en;
+  core:faIcon "fa-solid fa-land-mine-on";
+  core:order "1"^^xsd:integer .
+
+this:DanceType a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Dance Type"@en;
+  core:faIcon "fa-solid fa-land-mine-on";
+  core:order "1"^^xsd:integer .
+
+this:DancerLink a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Dancer Link"@en;
+  core:faIcon "fa-solid fa-land-mine-on";
+  core:order "1"^^xsd:integer .
+
+this:Description a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Description"@en;
+  core:faIcon "fa-light fa-comment-text";
+  core:order "1"^^xsd:integer .
+
+this:Disgust a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Disgust"@en;
+  core:faIcon "fa-solid fa-face-tired";
+  core:order "1"^^xsd:integer .
+
+this:Fear a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Fear"@en;
+  core:faIcon "fa-solid fa-face-surprise";
+  core:order "1"^^xsd:integer .
+
+this:HandMovement a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Hand Movement"@en;
+  core:faIcon "fa-solid fa-handshake-simple";
+  core:order "1"^^xsd:integer .
+
+this:Happiness a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Happiness"@en;
+  core:faIcon "fa-sharp fa-solid fa-face-smile";
+  core:order "1"^^xsd:integer .
+
+this:Id a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "ID"@en;
+  core:faIcon "fa-solid fa-id-card";
+  core:order "1"^^xsd:integer .
+
+this:KeyframeTime a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Keyframe Time"@en;
+  core:faIcon "fa-solid fa-timer";
+  core:order "1"^^xsd:integer .
+
+this:KineticUnit a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Kinetic Unit"@en;
+  core:faIcon "fa-solid fa-handshake-simple";
+  core:order "1"^^xsd:integer .
+
+this:Meter a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Meter"@en;
+  core:faIcon "fa-duotone fa-music";
+  core:order "1"^^xsd:integer .
+
+this:Mode a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Mode"@en;
+  core:faIcon "fa-solid fa-timeline";
+  core:order "1"^^xsd:integer .
+
+this:MusicGenre a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Music Genre"@en;
+  core:faIcon "fa-duotone fa-music";
+  core:order "1"^^xsd:integer .
+
+this:Negative a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Negative"@en;
+  core:faIcon "fa-solid fa-face-frown";
+  core:order "1"^^xsd:integer .
+
+this:Positive a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Positive"@en;
+  core:faIcon "fa-solid fa-face-smile-plus";
+  core:order "1"^^xsd:integer .
+
+this:Project_id a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Project ID"@en;
+  core:faIcon "fa-solid fa-id-card";
+  core:order "1"^^xsd:integer .
+
+this:Rhythm a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Rhythm"@en;
+  core:faIcon "fa-duotone fa-music";
+  core:order "1"^^xsd:integer .
+
+this:Sadness a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Sandess"@en;
+  core:faIcon "fa-solid fa-face-frown";
+  core:order "1"^^xsd:integer .
+
+this:Size a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Size"@en;
+  core:faIcon "fa-regular fa-wave-sine";
+  core:order "1"^^xsd:integer .
+
+this:Subjectivity a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Subjectivity"@en;
+  core:faIcon "fa-sharp fa-regular fa-siren-on";
+  core:order "1"^^xsd:integer .
+
+this:Surprise a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Surprise"@en;
+  core:faIcon "fa-solid fa-face-surprise";
+  core:order "1"^^xsd:integer .
+
+this:Text_id a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Text ID"@en;
+  core:faIcon "fa-light fa-comment-text";
+  core:order "1"^^xsd:integer .
+
+this:Updated_at a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "Updated At"@en;
+  core:faIcon "fa-regular fa-calendar-days";
+  core:order "1"^^xsd:integer .
+
+this:User_id a owl:Class;
+  rdfs:subClassOf rdfs:Literal;
+  rdfs:label "User ID"@en;
+  core:faIcon "fa-solid fa-id-card";
+  core:order "1"^^xsd:integer .
+
+this:belongsToGeneratedText a owl:ObjectProperty;
+  rdfs:label "belongs to generated text"@en;
+  rdfs:subPropertyOf core:AutocompleteProperty;
+  rdfs:domain this:GeneratedText;
+  rdfs:range this:Text;
+  datasources:datasource datasources:search_URI_contains;
+  core:enableOptional "true"^^xsd:boolean .
+
+this:belongsToMelodicAnalysis a owl:ObjectProperty;
+  rdfs:label "belongs to melodic analysis"@en;
+  rdfs:subPropertyOf core:AutocompleteProperty;
+  rdfs:domain this:Dance;
+  rdfs:range this:MelodicAnalysis;
+  datasources:datasource datasources:search_URI_contains;
+  core:enableOptional "true"^^xsd:boolean .
+
+this:belongsToRhythmicInstruction a owl:ObjectProperty;
+  rdfs:label "belongs to rhythmic instruction"@en;
+  rdfs:subPropertyOf core:AutocompleteProperty;
+  rdfs:domain this:Dance;
+  rdfs:range this:RhythmicInstruction;
+  datasources:datasource datasources:search_URI_contains;
+  core:enableOptional "true"^^xsd:boolean .
+
+this:belongsToShot a owl:ObjectProperty;
+  rdfs:label "belongs to shot"@en;
+  rdfs:subPropertyOf core:AutocompleteProperty;
+  rdfs:domain this:Dance;
+  rdfs:range this:Shot;
+  datasources:datasource datasources:search_URI_contains;
+  core:enableOptional "true"^^xsd:boolean .
+
+this:belongsToText a owl:ObjectProperty;
+  rdfs:label "belongs to text"@en;
+  rdfs:subPropertyOf core:AutocompleteProperty;
+  rdfs:domain this:Score;
+  rdfs:range this:Text;
+  datasources:datasource datasources:search_URI_contains;
+  core:enableOptional "true"^^xsd:boolean .
+
+this:belongsToVideo a owl:ObjectProperty;
+  rdfs:label "belongs to video"@en;
+  rdfs:subPropertyOf core:AutocompleteProperty;
+  rdfs:domain this:Shot;
+  rdfs:range this:Video;
+  datasources:datasource datasources:search_URI_contains;
+  core:enableOptional "true"^^xsd:boolean .
+
+this:belongsToWorkspace a owl:ObjectProperty;
+  rdfs:label "belongs to workspace"@en;
+  rdfs:subPropertyOf core:AutocompleteProperty;
+  rdfs:domain this:Metadata;
+  rdfs:range this:Workspace;
+  datasources:datasource datasources:search_URI_contains;
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasAvatar a owl:ObjectProperty;
+  rdfs:label "has avatar"@en;
+  rdfs:subPropertyOf core:AutocompleteProperty;
+  rdfs:domain this:Metadata;
+  rdfs:range this:Avatar;
+  datasources:datasource datasources:search_URI_contains;
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasDance a owl:ObjectProperty;
+  rdfs:label "has dance"@en;
+  rdfs:subPropertyOf core:AutocompleteProperty;
+  rdfs:domain this:Shot;
+  rdfs:range this:Dance;
+  datasources:datasource datasources:search_URI_contains;
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasGeneratedText a owl:ObjectProperty;
+  rdfs:label "has generated text"@en;
+  rdfs:subPropertyOf core:AutocompleteProperty;
+  rdfs:domain this:Text;
+  rdfs:range this:GeneratedText;
+  datasources:datasource datasources:search_URI_contains;
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasMetadata a owl:ObjectProperty;
+  rdfs:label "has metadata"@en;
+  rdfs:subPropertyOf core:AutocompleteProperty;
+  rdfs:domain this:Workspace;
+  rdfs:range this:Metadata;
+  datasources:datasource datasources:search_URI_contains;
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasScore a owl:ObjectProperty;
+  rdfs:label "has score"@en;
+  rdfs:subPropertyOf core:AutocompleteProperty;
+  rdfs:domain this:Text;
+  rdfs:range this:Score;
+  datasources:datasource datasources:search_URI_contains;
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasShot a owl:ObjectProperty;
+  rdfs:label "has shot"@en;
+  rdfs:subPropertyOf core:AutocompleteProperty;
+  rdfs:domain this:Video;
+  rdfs:range this:Shot;
+  datasources:datasource datasources:search_URI_contains;
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasSound a owl:ObjectProperty;
+  rdfs:label "has sound"@en;
+  rdfs:subPropertyOf core:AutocompleteProperty;
+  rdfs:domain this:Metadata;
+  rdfs:range this:Sound;
+  datasources:datasource datasources:search_URI_contains;
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasText a owl:ObjectProperty;
+  rdfs:label "has text"@en;
+  rdfs:subPropertyOf core:AutocompleteProperty;
+  rdfs:domain this:Metadata;
+  rdfs:range this:Text;
+  datasources:datasource datasources:search_URI_contains;
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasVideo a owl:ObjectProperty;
+  rdfs:label "has video"@en;
+  rdfs:subPropertyOf core:AutocompleteProperty;
+  rdfs:domain this:Metadata;
+  rdfs:range this:Video;
+  datasources:datasource datasources:search_URI_contains;
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasAnger a owl:ObjectProperty;
+  rdfs:label "has anger"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Score;
+  rdfs:range this:Anger;
+  core:sparqlString "<https://chromata-project.gr/anger>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasAttire a owl:ObjectProperty;
+  rdfs:label "has attire"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Dance;
+  rdfs:range this:Attire;
+  core:sparqlString "<https://chromata-project.gr/attire>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasBeatValue a owl:ObjectProperty;
+  rdfs:label "has beat value"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:RhythmicInstruction;
+  rdfs:range this:BeatValue;
+  core:sparqlString "<https://chromata-project.gr/beatValue>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasBeatsPerMinute a owl:ObjectProperty;
+  rdfs:label "has beats per minute"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:RhythmicInstruction;
+  rdfs:range this:BeatsperMinute;
+  core:sparqlString "<https://chromata-project.gr/beatsPerMinute>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasBody a owl:ObjectProperty;
+  rdfs:label "has body"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:GeneratedText;
+  rdfs:range this:Body;
+  core:sparqlString "<https://chromata-project.gr/body>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasCreated_at a owl:ObjectProperty;
+  rdfs:label "created at"@en;
+  rdfs:subPropertyOf core:TimeProperty-Date;
+  rdfs:domain this:GeneratedText, this:Score;
+  rdfs:range this:Created_at;
+  core:sparqlString "<https://chromata-project.gr/created_at>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasDanceFormation a owl:ObjectProperty;
+  rdfs:label "has dance formation"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Dance;
+  rdfs:range this:DanceFormation;
+  core:sparqlString "<https://chromata-project.gr/danceFormation>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasDanceGenre a owl:ObjectProperty;
+  rdfs:label "has dance genre"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Dance;
+  rdfs:range this:DanceGenre;
+  core:sparqlString "<https://chromata-project.gr/danceGenre>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasDanceType a owl:ObjectProperty;
+  rdfs:label "has dance type"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Dance;
+  rdfs:range this:DanceType;
+  core:sparqlString "<https://chromata-project.gr/danceType>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasDancerLink a owl:ObjectProperty;
+  rdfs:label "has dancer's link"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Dance;
+  rdfs:range this:DancerLink;
+  core:sparqlString "<https://chromata-project.gr/dancerLink>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasDescription a owl:ObjectProperty;
+  rdfs:label "has description"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Avatar, this:Sound, this:Text, this:Video;
+  rdfs:range this:Description;
+  core:sparqlString "<https://chromata-project.gr/description>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasDisgust a owl:ObjectProperty;
+  rdfs:label "has disgust score"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Score;
+  rdfs:range this:Disgust;
+  core:sparqlString "<https://chromata-project.gr/disgust>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasFear a owl:ObjectProperty;
+  rdfs:label "has fear score"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Score;
+  rdfs:range this:Fear;
+  core:sparqlString "<https://chromata-project.gr/fear>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasHandMovement a owl:ObjectProperty;
+  rdfs:label "has hand movement"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Dance;
+  rdfs:range this:HandMovement;
+  core:sparqlString "<https://chromata-project.gr/handMovement>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasHappiness a owl:ObjectProperty;
+  rdfs:label "has happiness score"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Score;
+  rdfs:range this:Happiness;
+  core:sparqlString "<https://chromata-project.gr/happiness>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasId a owl:ObjectProperty;
+  rdfs:label "has ID"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Avatar, this:Dance, this:GeneratedText, this:Score, this:Shot, this:Sound,
+    this:Text, this:Video;
+  rdfs:range this:Id;
+  core:sparqlString "<https://chromata-project.gr/id>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasKeyframeTime a owl:ObjectProperty;
+  rdfs:label "has keyframe time"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Shot;
+  rdfs:range this:KeyframeTime;
+  core:sparqlString "<https://chromata-project.gr/keyframeTime>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasKineticUnit a owl:ObjectProperty;
+  rdfs:label "has kinetic unit"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Dance;
+  rdfs:range this:KineticUnit;
+  core:sparqlString "<https://chromata-project.gr/kineticUnit>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasMeter a owl:ObjectProperty;
+  rdfs:label "has meter"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:MelodicAnalysis;
+  rdfs:range this:Meter;
+  core:sparqlString "<https://chromata-project.gr/meter>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasMode a owl:ObjectProperty;
+  rdfs:label "has mode"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:MelodicAnalysis;
+  rdfs:range this:Mode;
+  core:sparqlString "<https://chromata-project.gr/mode>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasMusicGenre a owl:ObjectProperty;
+  rdfs:label "has music genre"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:MelodicAnalysis;
+  rdfs:range this:MusicGenre;
+  core:sparqlString "<https://chromata-project.gr/musicGenre>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasNegative a owl:ObjectProperty;
+  rdfs:label "has negative score"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Score;
+  rdfs:range this:Negative;
+  core:sparqlString "<https://chromata-project.gr/negative>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasPositive a owl:ObjectProperty;
+  rdfs:label "has positive score"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Score;
+  rdfs:range this:Positive;
+  core:sparqlString "<https://chromata-project.gr/positive>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasProject_id a owl:ObjectProperty;
+  rdfs:label "has project ID"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Avatar, this:Sound, this:Text, this:Video;
+  rdfs:range this:Project_id;
+  core:sparqlString "<https://chromata-project.gr/project_id>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasRhythm a owl:ObjectProperty;
+  rdfs:label "has rhythm"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:RhythmicInstruction;
+  rdfs:range this:Rhythm;
+  core:sparqlString "<https://chromata-project.gr/rhythm>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasSadness a owl:ObjectProperty;
+  rdfs:label "has sadness score"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Score;
+  rdfs:range this:Sadness;
+  core:sparqlString "<https://chromata-project.gr/sadness>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasSize a owl:ObjectProperty;
+  rdfs:label "has size"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Avatar;
+  rdfs:range this:Size;
+  core:sparqlString "<https://chromata-project.gr/size>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasSubjectivity a owl:ObjectProperty;
+  rdfs:label "has subjectivity score"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Score;
+  rdfs:range this:Subjectivity;
+  core:sparqlString "<https://chromata-project.gr/subjectivity>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasSurprise a owl:ObjectProperty;
+  rdfs:label "has surprise score"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Score;
+  rdfs:range this:Surprise;
+  core:sparqlString "<https://chromata-project.gr/surprise>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasText_id a owl:ObjectProperty;
+  rdfs:label "has text ID"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Avatar, this:GeneratedText, this:Sound, this:Text, this:Video;
+  rdfs:range this:Text_id;
+  core:sparqlString "<https://chromata-project.gr/text_id>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasUpdated_at a owl:ObjectProperty;
+  rdfs:label "has been update at"@en;
+  rdfs:subPropertyOf core:TimeProperty-Date;
+  rdfs:domain this:GeneratedText, this:Score;
+  rdfs:range this:Updated_at;
+  core:sparqlString "<https://chromata-project.gr/updated_at>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:hasUser_id a owl:ObjectProperty;
+  rdfs:label "has user ID"@en;
+  rdfs:subPropertyOf core:SearchProperty;
+  rdfs:domain this:Avatar, this:Sound, this:Text, this:Video;
+  rdfs:range this:User_id;
+  core:sparqlString "<https://chromata-project.gr/user_id>";
+  core:enableOptional "true"^^xsd:boolean .
+
+this:list_myname_count a datasources:SparqlDatasource;
+  datasources:queryTemplate datasources:query_list_label_count;
+  datasources:labelProperty "<https://chromata-project.gr>" .
+
+this:list_skosprefLabel_alpha_with_count_langfr a datasources:SparqlDatasource;
+  datasources:queryTemplate this:query_list_label_alpha_with_count_langfr;
+  datasources:labelProperty skos:prefLabel .
+
+this:search_URI_contains a datasources:SparqlDatasource;
+  datasources:queryString datasources:query_search_URI_contains .
+
+this:query_list_label_alpha_with_count_langfr a datasources:SPARQLQuery;
+  datasources:queryString """SELECT DISTINCT ?uri ?count (CONCAT(STR(?theLabel), ' (', STR(?count), ')') AS ?label)
+WHERE {
+{
+ SELECT DISTINCT ?uri (COUNT(?domain) AS ?count)
+ WHERE {
+ ?domain a $domain .
+ ?domain $property ?uri .
+ FILTER(isIRI(?uri))
+ # Note how the range criteria is not used in this query
+ }
+ GROUP BY ?uri
+}
+OPTIONAL { ?uri $labelPath ?theLabelLang . FILTER(lang(?theLabelLang) = $lang) }
+OPTIONAL { ?uri $labelPath ?theLabelNone . FILTER(lang(?theLabelNone) = \"\") }
+OPTIONAL { ?uri $labelPath ?theLabelFr . FILTER(lang(?theLabelFr) = \"fr\") }
+BIND(COALESCE(?theLabelLang, ?theLabelNone, ?theLabelFr, STR(?uri)) AS ?theLabel)
+}
+ORDER BY UCASE(?label)
+LIMIT 500""";
+  rdfs:comment "A query that will list entries alphabetically with number of occurrences in parenthesis by fetching first in the user language but will default to French"@en .
+
+this:query_list_label_count_langfr a datasources:SPARQLQuery;
+  datasources:queryString """SELECT ?uri ?count (CONCAT(STR(?theLabel), ' (', STR(?count), ')') AS ?label)
+WHERE {
+{
+ SELECT DISTINCT ?uri (COUNT(?domain) AS ?count)
+ WHERE {
+ ?domain a $domain .
+ ?domain $property ?uri .
+ FILTER(isIRI(?uri))
+ # Note how the range criteria is not used in this query
+ }
+ GROUP BY ?uri
+}
+OPTIONAL { ?uri $labelPath ?theLabelLang . FILTER(lang(?theLabelLang) = $lang) }
+OPTIONAL { ?uri $labelPath ?theLabelNone . FILTER(lang(?theLabelNone) = \"\") }
+OPTIONAL { ?uri $labelPath ?theLabelFr . FILTER(lang(?theLabelFr) = \"fr\") }
+BIND(COALESCE(?theLabelLang, ?theLabelNone, ?theLabelFr) AS ?theLabel)
+}
+ORDER BY DESC(?count) UCASE(?label)
+LIMIT 500""";
+  rdfs:comment "A query that will list entries by descending number of occurrences by fetching first in the user langauge but will default to French"@en .
+
+this:query_list_label_alpha_langfr a datasources:SPARQLQuery;
+  datasources:queryString """SELECT DISTINCT ?uri ?label
+WHERE {
+ ?domain a $domain .
+ ?domain $property ?uri .
+ # Note how the range criteria is not used in this query
+ FILTER(isIRI(?uri))
+
+ OPTIONAL { ?uri $labelPath ?theLabelLang . FILTER(lang(?theLabelLang) = $lang) }
+ OPTIONAL { ?uri $labelPath ?theLabelNone . FILTER(lang(?theLabelNone) = \"\") }
+ OPTIONAL { ?uri $labelPath ?theLabelFr . FILTER(lang(?theLabelFr) = \"fr\") }
+ BIND(COALESCE(?theLabelLang, ?theLabelNone, ?theLabelFr) AS ?label)
+}
+ORDER BY UCASE(?label)
+LIMIT 500""";
+  rdfs:comment "A query that will list entries alphabetically by fetching first in the user language but will default to French"@en .
+
+this:query_search_label_contains_langfr a datasources:SPARQLQuery;
+  datasources:queryString """SELECT DISTINCT ?uri ?label
+WHERE {
+ ?domain a $domain .
+ ?domain $property ?uri .
+ ?uri a $range .
+ ?uri $labelPath ?label .
+ FILTER(isIRI(?uri))
+ FILTER(CONTAINS(LCASE(STR(?label)), LCASE(\"$key\"))) 
+ FILTER(lang(?label) = '' || lang(?label) = \"fr\")
+} 
+ORDER BY UCASE(?label)
+LIMIT 50""";
+  rdfs:comment "A query that will search in labels using contains function, first in the user language but will default to French."@en .
